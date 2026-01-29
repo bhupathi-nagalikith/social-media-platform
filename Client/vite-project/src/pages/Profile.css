@@ -1,0 +1,163 @@
+.profile-page {
+  flex: 1;
+  margin-left: 260px; /* Space for sidebar */
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+}
+
+/* Header Section */
+.profile-header {
+  display: flex;
+  width: 100%;
+  max-width: 935px;
+  margin-bottom: 44px;
+  gap: 70px;
+  padding: 0 20px;
+}
+
+.profile-image img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid #dbdbdb;
+}
+
+.profile-details {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.top-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.top-row h2 {
+  font-weight: 300;
+  font-size: 28px;
+}
+
+.b{
+  /* padding: 5px 15px; */
+  font-weight: 600;
+  border: 1px solid #dbdbdb;
+  border-radius: 4px;
+  background-color:blue;
+  color: #fff;
+  cursor: pointer;
+  width: 150px;
+  height: 40px;
+}
+
+.stats-row {
+  display: flex;
+  gap: 40px;
+  font-size: 16px;
+}
+
+.bio .full-name {
+  font-weight: 600;
+}
+
+/* Tabs */
+.profile-tabs {
+  border-top: 1px solid #dbdbdb;
+  width: 100%;
+  max-width: 935px;
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  margin-bottom: 20px;
+}
+
+.profile-tabs span {
+  padding-top: 15px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #8e8e8e;
+  cursor: pointer;
+  letter-spacing: 1px;
+}
+
+.profile-tabs .active {
+  color: #000;
+  border-top: 1px solid #000;
+}
+
+/* Image Grid */
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  width: 100%;
+  max-width: 935px;
+}
+
+.grid-item {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.grid-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Hover Overlay */
+.grid-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  color: white;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.grid-item:hover .grid-overlay {
+  opacity: 1;
+}
+
+/* RESPONSIVE PROFILE */
+@media (max-width: 768px) {
+  .profile-page {
+    margin-left: 0;
+    padding-bottom: 80px;
+  }
+
+  .profile-header {
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .profile-image img {
+    width: 90px;
+    height: 90px;
+  }
+
+  .stats-row {
+    gap: 20px;
+    justify-content: center;
+  }
+
+  .image-grid {
+    gap: 3px; /* Smaller gap on mobile like Instagram */
+  }
+}

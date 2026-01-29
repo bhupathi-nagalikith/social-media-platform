@@ -17,15 +17,13 @@ body{
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
 }
 .img {
-  width: 70vw;
+  width: 60vw;
   height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* This ensures the image fills the area without stretching */
-}
 /* ===== Glass Card ===== */
 .login-card {
   background: rgba(255, 255, 255, 0.18);
@@ -43,7 +41,7 @@ body{
 
   padding: 42px 38px;
   width: 100%;
-  max-width: 400px;
+  max-width: 500px;
 }
 
 /* ===== Headings ===== */

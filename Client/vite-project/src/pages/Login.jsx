@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import './Login.css'
 import { Navigate, useNavigate } from "react-router-dom";
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
 const Login = ({obj,setlogin}) => {
   const [email, setEmail] = useState("");
@@ -26,7 +27,15 @@ const Login = ({obj,setlogin}) => {
   return (
     <div className="login-container">
       <div className="img">
-        <img src="https://aniview.com/wp-content/uploads/2023/02/social-media-platforms.jpg" alt="" />
+        <div>
+        <DotLottieReact
+           src="https://lottie.host/31780b29-90da-4e9c-9a49-11c7a8266cee/34HIp2qGdz.json"
+          loop
+          autoplay
+          quality="high"
+          style={{ width: "1000px", height: "600px" }}
+        />
+      </div>
       </div>
       <div className="login-card">
         <h2 className="login-title">Welcome Back</h2>

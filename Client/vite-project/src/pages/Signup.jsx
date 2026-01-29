@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Signup.css";
 import { useNavigate } from "react-router-dom";
-
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 const Signup = ({setuser}) => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -28,7 +28,13 @@ const Signup = ({setuser}) => {
   return (
     <div className="containerStyle">
       <div className="img">
-      <img src="https://static.wixstatic.com/media/6f23e4_de7d13c97a52439db2c162ca7d2518c8~mv2.jpeg/v1/fill/w_1000,h_1000,al_c,q_85,usm_0.66_1.00_0.01/6f23e4_de7d13c97a52439db2c162ca7d2518c8~mv2.jpeg" alt="" />
+        <DotLottieReact
+            src="https://lottie.host/a329ed4e-a781-4418-8404-4186194440fe/183mQhm7l2.json"
+          loop
+          autoplay
+          quality="high"
+          style={{ width: "900px", height: "500px" }}
+          />
       </div>
       <div className="cardStyle">
         <div className="headerStyle">
