@@ -9,7 +9,8 @@ import Messages from './pages/Messages';
 import Profile from './pages/Profile';
 
 import Protectedroute from './components/Protectedroute';
-import MainLayout from './components/MainLayout';
+import MainLayout from './components/Mainlayout.jsx';
+import Forgottenpass from './pages/Forgottenpass.jsx';
 
 function App() {
   const [login, setlogin] = useState(false);
@@ -18,12 +19,9 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-
-        {/* Public routes */}
-        <Route path="/" element={<Login obj={user} setlogin={setlogin} />} />
+        {/* <Route path="/" element={<Login obj={user} setlogin={setlogin} />} />
         <Route path="/signup" element={<Signup setuser={setuser} />} />
 
-        {/* Protected routes */}
         <Route
           element={
             <Protectedroute login={login}>
@@ -35,7 +33,8 @@ function App() {
           <Route path="/reels" element={<Reelscontent />} />
           <Route path="/messages" element={<Messages />} />
           <Route path="/profile" element={<Profile />} />
-        </Route>
+        </Route> */}
+        <Route path='/' element={<Profile/>}/>
 
       </Routes>
     </BrowserRouter>

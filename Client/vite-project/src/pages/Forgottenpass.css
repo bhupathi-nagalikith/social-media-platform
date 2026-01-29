@@ -36,8 +36,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-right: 50px;
   padding: 40px;
-  width: 30vw;
+  width: 35vw;
 }
 .sub{
     background: rgba(255, 255, 255, 0.3); 
