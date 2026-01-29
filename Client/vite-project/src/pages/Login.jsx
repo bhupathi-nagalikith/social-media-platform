@@ -1,18 +1,33 @@
 import React, { useState } from "react";
 import './Login.css'
+import { Navigate, useNavigate } from "react-router-dom";
 
-const Login = () => {
+const Login = ({obj,setlogin}) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  // const [login,setlogin]=useState(false);
+  const navigate=useNavigate()
   const handleLogin = (e) => {
     e.preventDefault();
-    console.log(email, password);
-    alert("Login successful");
+     if (!obj) {
+      alert("No user found. Please sign up first.");
+      return;
+    }
+
+    if (obj.email === email && obj.password === password) {
+      setlogin(true);
+      navigate('/home')
+      alert("Login successful");
+    } else {
+      alert("Invalid email or password");
+    }
   };
 
   return (
     <div className="login-container">
+      <div className="img">
+        <img src="https://aniview.com/wp-content/uploads/2023/02/social-media-platforms.jpg" alt="" />
+      </div>
       <div className="login-card">
         <h2 className="login-title">Welcome Back</h2>
         <p className="login-subtitle">Please enter your credentials</p>
@@ -59,7 +74,7 @@ const Login = () => {
           </div>
 
           <button type="submit" className="login-button">
-            Sign In
+            Login In
           </button>
 
           <div className="signup-link">

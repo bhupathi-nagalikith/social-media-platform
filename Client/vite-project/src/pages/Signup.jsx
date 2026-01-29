@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import "./Signup.css";
+import { useNavigate } from "react-router-dom";
 
-const Signup = () => {
+const Signup = ({setuser}) => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const navigate=useNavigate()
 
   const handleSignup = (e) => {
     e.preventDefault();
@@ -13,12 +15,21 @@ const Signup = () => {
       alert("Passwords do not match!");
       return;
     }
-    console.log({ username, email, password });
+    setuser({
+      username,
+      email,
+      password,
+    });
+
     alert("Registration successful!");
+    navigate("/");
   };
 
   return (
     <div className="containerStyle">
+      <div className="img">
+      <img src="https://static.wixstatic.com/media/6f23e4_de7d13c97a52439db2c162ca7d2518c8~mv2.jpeg/v1/fill/w_1000,h_1000,al_c,q_85,usm_0.66_1.00_0.01/6f23e4_de7d13c97a52439db2c162ca7d2518c8~mv2.jpeg" alt="" />
+      </div>
       <div className="cardStyle">
         <div className="headerStyle">
           <h2 className="titleStyle">Create Account</h2>
@@ -94,7 +105,7 @@ const Signup = () => {
           <div className="loginStyle">
             Already have an account?{" "}
             <a href="/login" className="linkStyle">
-              Sign in here
+              Login In here
             </a>
           </div>
         </form>
