@@ -1,0 +1,126 @@
+* {
+  
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+.cont {
+/* background-color: #166fe5; */
+  display: flex;
+  height: 100vh; /* Full viewport height */
+  width: 100vw;
+  align-items: center;
+  background-color: #fff;
+  margin: 0%;
+  padding: 0%;
+}
+
+/* Left Side: 60% Width */
+.img {
+  width: 70vw;
+  height: 100%;
+}
+
+.img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* This ensures the image fills the area without stretching */
+}
+
+/* Right Side: 40% Width */
+.contain{
+  
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  width: 30vw;
+}
+.sub{
+    background: rgba(255, 255, 255, 0.3); 
+
+  /* 2. The Blur Effect (Blurs what is BEHIND the card) */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); /* For Safari support */
+
+  /* 3. A subtle "highlight" border */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  /* 4. Soft shadow for depth */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  
+  border-radius: 15px;
+  height: 70vh;
+  width: 30vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+form {
+  width: 100%;
+  max-width: 350px; /* Keeps the form from getting too wide on large screens */
+}
+
+h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color:blue;
+  width: 100%;
+  max-width: 350px;
+}
+
+.label {
+  margin-bottom: 10px;
+  color:blue;
+  font-size: 1.2rem;
+}
+
+.input {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #dddfe2;
+  border-radius: 8px;
+  font-size: 1rem;
+  margin-bottom: 20px;
+  outline: none;
+}
+
+.input:focus {
+  border-color: #1877f2;
+  box-shadow: 0 0 0 2px #e7f3ff;
+}
+
+.btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #1877f2;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #166fe5;
+}
+
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+  .img {
+    flex: 0 0 40%; 
+    width: 100%;
+  }
+  .card {
+    flex: 0 0 60%;
+    width: 100%;
+  }
+}
