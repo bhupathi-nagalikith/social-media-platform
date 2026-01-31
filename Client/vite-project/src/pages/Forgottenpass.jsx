@@ -21,7 +21,7 @@ function Forgottenpass() {
          <form action="submit">
             <p className='label'>Enter you Mobile number or email</p>
             <input type="text" className='input' placeholder='enter your mobile number or email'/>
-            <button onClick={()=>{navigate('/home')}} className='btn'>Continue</button>
+            <button onClick={()=>{navigate('/')}} className='btn'>Continue</button>
          </form>
          </div>
       </div>
