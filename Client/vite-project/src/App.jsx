@@ -10,7 +10,7 @@ import Profile from './pages/Profile';
 
 import Protectedroute from './components/Protectedroute';
 import MainLayout from './components/Mainlayout.jsx';
-import Forgottenpass from './pages/Forgottenpass.jsx';
+import Notification from './pages/Notification.jsx';
 
 function App() {
   const [login, setlogin] = useState(false);
@@ -34,7 +34,7 @@ function App() {
           <Route path="/messages" element={<Messages />} />
           <Route path="/profile" element={<Profile />} />
         </Route> */}
-        <Route path='/' element={<Profile/>}/>
+        <Route path='/' element={<Notification/>}/>
 
       </Routes>
     </BrowserRouter>
