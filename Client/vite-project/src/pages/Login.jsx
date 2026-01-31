@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import './Login.css'
+import '../styles/Login.css'
 import { Navigate, useNavigate } from "react-router-dom";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
@@ -73,11 +73,11 @@ const Login = ({obj,setlogin}) => {
           </div>
 
           <div className="form-options">
-            <label className="checkbox-label">
+            {/* <label className="checkbox-label">
               <input type="checkbox" className="checkbox" />
               Remember me
-            </label>
-            <a href="/forgot-password" className="forgot-link">
+            </label> */}
+            <a href="/forgotpassword" className="forgot-link">
               Forgot password?
             </a>
           </div>

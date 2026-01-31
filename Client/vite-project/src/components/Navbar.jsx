@@ -1,5 +1,5 @@
 import { Home, MessageCircle, Film, Search, Bell, User, LogOut } from 'lucide-react';
-import './Navbar.css'
+import '../styles/Navbar.css'
 import { useNavigate } from 'react-router-dom';
 function Navbar() {
   const navigate=useNavigate()

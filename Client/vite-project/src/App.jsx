@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import Login from "./pages/Login";
-import Signup from "./pages/Signup";
-import Home from './pages/Home';
-import Reelscontent from './pages/Reelscontent';
-import Messages from './pages/Messages';
-import Profile from './pages/Profile';
+// import Login from "./pages/Login";
+// import Signup from "./pages/Signup";
+// import Home from './pages/Home';
+// import Reelscontent from './pages/Reelscontent';
+// import Messages from './pages/Messages';
+// import Profile from './pages/Profile';
 
-import Protectedroute from './components/Protectedroute';
-import MainLayout from './components/Mainlayout.jsx';
+// import Protectedroute from './components/Protectedroute';
+// import MainLayout from './components/Mainlayout.jsx';
 import Forgottenpass from './pages/Forgottenpass.jsx';
 
 function App() {
@@ -21,6 +21,7 @@ function App() {
       <Routes>
         {/* <Route path="/" element={<Login obj={user} setlogin={setlogin} />} />
         <Route path="/signup" element={<Signup setuser={setuser} />} />
+        <Route path='forgotpassword' element={<Forgottenpass/>}/>
 
         <Route
           element={
@@ -34,10 +35,10 @@ function App() {
           <Route path="/messages" element={<Messages />} />
           <Route path="/profile" element={<Profile />} />
         </Route> */}
-        <Route path='/' element={<Profile/>}/>
-
+        <Route path="/" element={<Forgottenpass />} />
       </Routes>
     </BrowserRouter>
+    
   );
 }
 
