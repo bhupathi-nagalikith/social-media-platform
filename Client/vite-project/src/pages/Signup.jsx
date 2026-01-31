@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Signup.css";
+import "../styles/Signup.css";
 import { useNavigate } from "react-router-dom";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 const Signup = ({setuser}) => {
