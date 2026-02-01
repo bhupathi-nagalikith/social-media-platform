@@ -20,7 +20,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* <Route path="/" element={<Login obj={user} setlogin={setlogin} />} />
+        <Route path="/" element={<Login obj={user} setlogin={setlogin} />} />
         <Route path="/signup" element={<Signup setuser={setuser} />} />
         <Route path='forgotpassword' element={<Forgottenpass/>}/>
 
@@ -33,11 +33,11 @@ function App() {
         >
           <Route path="/home" element={<Home />} />
           <Route path="/reels" element={<Reelscontent />} />
-          <Route path="/messages" element={<Messages />} /> */}
-          <Route path="/" element={<Reelscontent/>} />
-          {/* <Route path="/profile" element={<Profile />} /> 
+          <Route path="/messages" element={<Messages />} /> 
+          <Route path="/notification" element={<Notification />} /> 
+          <Route path="/profile" element={<Profile />} /> 
           </Route>
-         */}
+        
       </Routes>
     </BrowserRouter>
     

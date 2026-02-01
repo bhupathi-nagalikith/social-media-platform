@@ -1,12 +1,12 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Heart, MessageCircle, Send, MoreVertical, Music, Volume2, VolumeX } from 'lucide-react';
 import '../styles/Reels.css';
+import Navbar from '../components/Navbar';
 
-const ReelCard = ({ reel }) => {
+const ReelCard = ({ reel, isMuted }) => {
   const videoRef = useRef(null);
   const [playing, setPlaying] = useState(false);
   const [isLiked, setIsLiked] = useState(false);
-  const [isMuted, setIsMuted] = useState(true);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -15,11 +15,10 @@ const ReelCard = ({ reel }) => {
     const callback = (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          // Reset and Play
           video.muted = isMuted;
           video.play()
             .then(() => setPlaying(true))
-            .catch((err) => console.log("Playback wait:", err.message));
+            .catch((err) => console.log("Waiting for interaction:", err.message));
         } else {
           video.pause();
           setPlaying(false);
@@ -27,27 +26,19 @@ const ReelCard = ({ reel }) => {
       });
     };
 
-    const observer = new IntersectionObserver(callback, { threshold: 0.6 });
+    const observer = new IntersectionObserver(callback, { threshold: 0.7 });
     observer.observe(video);
 
     return () => observer.disconnect();
-  }, [isMuted, reel.videoUrl]); // Added videoUrl to dependency to re-trigger on change
+  }, [isMuted]);
 
   const togglePlay = () => {
-    if (!videoRef.current) return;
     if (playing) {
       videoRef.current.pause();
       setPlaying(false);
     } else {
-      videoRef.current.play()
-        .then(() => setPlaying(true))
-        .catch(err => console.error("Error playing:", err));
+      videoRef.current.play().then(() => setPlaying(true));
     }
-  };
-
-  const toggleMute = (e) => {
-    e.stopPropagation();
-    setIsMuted(!isMuted);
   };
 
   return (
@@ -63,11 +54,8 @@ const ReelCard = ({ reel }) => {
         preload="auto"
       />
       
-      <div className="mute-btn" onClick={toggleMute}>
-        {isMuted ? <VolumeX size={20} color="white" /> : <Volume2 size={20} color="white" />}
-      </div>
-
       <div className="reel-overlay">
+        {/* Interaction Sidebar */}
         <div className="reel-actions">
           <div className="action-item" onClick={(e) => { e.stopPropagation(); setIsLiked(!isLiked); }}>
             <Heart size={32} color={isLiked ? "#ff3040" : "white"} fill={isLiked ? "#ff3040" : "none"} />
@@ -78,16 +66,30 @@ const ReelCard = ({ reel }) => {
           <div className="action-item"><MoreVertical size={25} color="white" /></div>
         </div>
 
+        {/* User Info & Caption */}
         <div className="reel-info">
           <div className="user-info">
-            <img src={reel.avatar} alt="avatar" />
-            <h4>{reel.user}</h4>
-            <button className="follow-btn">Follow</button>
+            <div className="avatar-container">
+              <img src={reel.avatar} alt="avatar" className="user-avatar" />
+              <div className="avatar-border"></div>
+            </div>
+            <div className="user-details">
+              <h4 className="username">
+                {reel.user}
+                <span className="verified-badge">✓</span>
+              </h4>
+              <button className="follow-btn">Follow</button>
+            </div>
           </div>
+          
           <p className="caption">{reel.caption}</p>
-          {/* <div className="music-info">
-            <Music size={16} /><div className="marquee"><p>{reel.music}</p></div>
-          </div> */}
+
+          <div className="music-info">
+            <Music size={14} className="music-icon" />
+            <div className="marquee">
+              <p>{reel.music} • Original Audio</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -95,37 +97,50 @@ const ReelCard = ({ reel }) => {
 };
 
 const ReelsPage = () => {
-  // STABLE DIRECT MP4 LINKS
+  const [isMuted, setIsMuted] = useState(true);
+
   const reelData = [
     {
       id: 1,
       user: 'nature_vibe',
       avatar: 'https://i.pravatar.cc/150?img=32',
-      caption: 'Testing direct source 1 🌊',
+      caption: 'Testing direct source 1 🌊 #nature #calm',
       music: 'Summer Vibes - Audio',
       likes: '12K',
       comments: '140',
-      // Direct Link from W3Schools (Standard test video)
       videoUrl: 'https://www.w3schools.com/html/mov_bbb.mp4',
     },
     {
       id: 2,
       user: 'urban_life',
       avatar: 'https://i.pravatar.cc/150?img=11',
-      caption: 'Testing direct source 2 🌃',
+      caption: 'City lights in 4K 🌃 #urban #photography',
       music: 'Night Drive - LoFi',
       likes: '85K',
       comments: '2K',
-      // High-quality vertical sample from a cloud server
       videoUrl: 'https://raw.githubusercontent.com/intel-iot-devkit/sample-videos/master/person-bicycle-640x360.mp4',
     }
   ];
 
   return (
-    <div className="reels-container">
-      {reelData.map((reel) => (
-        <ReelCard key={reel.id} reel={reel} />
-      ))}
+    <div className="reels-layout">
+      {/* Side Navbar */}
+      <aside className="sidebar-wrapper">
+        <Navbar />
+      </aside>
+
+      {/* Main Video Section */}
+      <main className="reels-main-content">
+        <div className="global-mute-btn" onClick={() => setIsMuted(!isMuted)}>
+          {isMuted ? <VolumeX size={20} color="white" /> : <Volume2 size={20} color="white" />}
+        </div>
+
+        <div className="reels-container">
+          {reelData.map((reel) => (
+            <ReelCard key={reel.id} reel={reel} isMuted={isMuted} />
+          ))}
+        </div>
+      </main>
     </div>
   );
 };

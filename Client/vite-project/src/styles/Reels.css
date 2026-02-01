@@ -1,45 +1,64 @@
+/* LAYOUT BASE */
+.reels-layout {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  background-color: #000;
+  overflow: hidden;
+}
+
+.sidebar-wrapper {
+  width: 250px;
+  height: 100vh;
+  border-right: 1px solid #262626;
+  flex-shrink: 0;
+  background-color: #000;
+}
+
+.reels-main-content {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  height: 100vh;
+}
+
+/* CONTAINER & SNAPPING */
 .reels-container {
   height: 100vh;
   width: 100%;
   max-width: 480px;
-  margin: 0 auto;
   overflow-y: scroll;
   scroll-snap-type: y mandatory;
-  background: #000;
   scrollbar-width: none;
 }
 
-.reels-container::-webkit-scrollbar {
-  display: none;
-}
+.reels-container::-webkit-scrollbar { display: none; }
 
 .reel-card {
   height: 100vh;
   width: 100%;
   scroll-snap-align: start;
   position: relative;
-  background: #000;
 }
 
 .reel-video {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  cursor: pointer;
 }
 
-.mute-btn {
+/* OVERLAYS */
+.global-mute-btn {
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 25px;
+  right: 25px;
   background: rgba(0, 0, 0, 0.4);
-  padding: 8px;
+  padding: 10px;
   border-radius: 50%;
-  z-index: 20;
+  z-index: 100;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .reel-overlay {
@@ -52,9 +71,9 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: 20px;
+  padding: 25px;
   color: white;
-  pointer-events: none; /* Allows clicking through to the video */
+  pointer-events: none;
 }
 
 .reel-actions {
@@ -63,54 +82,86 @@
   bottom: 120px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  align-items: center;
-  pointer-events: auto; /* Re-enable for buttons */
+  gap: 22px;
+  pointer-events: auto;
 }
 
 .action-item {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 5px;
+  gap: 4px;
   cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
 }
 
-.action-item span {
-  font-size: 12px;
-  font-weight: 600;
-}
-
-.reel-info {
-  pointer-events: auto;
-  margin-bottom: 20px;
-}
+/* USER PIC & NAME IMPROVEMENTS */
+.reel-info { pointer-events: auto; }
 
 .user-info {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   margin-bottom: 12px;
 }
 
-.user-info img {
+.avatar-container {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.user-avatar {
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  border: 2px solid #fff;
+  object-fit: cover;
+  border: 2px solid #000;
+  z-index: 2;
 }
 
-.user-info h4 {
+.avatar-border {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  z-index: 1;
+}
+
+.username {
   font-size: 15px;
-  font-weight: 600;
+  font-weight: 700;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.verified-badge {
+  background: #0095f6;
+  color: #fff;
+  font-size: 8px;
+  width: 12px;
+  height: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
 }
 
 .follow-btn {
   background: transparent;
-  border: 1px solid #fff;
+  border: 1px solid rgba(255, 255, 255, 0.8);
   color: #fff;
-  padding: 4px 12px;
-  border-radius: 6px;
+  padding: 3px 12px;
+  border-radius: 7px;
   font-size: 12px;
   font-weight: 700;
   cursor: pointer;
@@ -118,31 +169,36 @@
 
 .caption {
   font-size: 14px;
-  margin-bottom: 15px;
+  margin-bottom: 18px;
   max-width: 85%;
-  line-height: 1.4;
+  line-height: 1.5;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 }
 
 .music-info {
   display: flex;
   align-items: center;
-  gap: 10px;
-  width: 70%;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 6px 12px;
+  border-radius: 30px;
+  width: fit-content;
+  backdrop-filter: blur(8px);
 }
 
 .marquee {
   overflow: hidden;
   white-space: nowrap;
+  max-width: 150px;
 }
 
 .marquee p {
   display: inline-block;
-  padding-left: 100%;
-  animation: scroll-text 10s linear infinite;
   font-size: 13px;
+  animation: scroll-text 8s linear infinite;
 }
 
 @keyframes scroll-text {
-  0% { transform: translate(0, 0); }
-  100% { transform: translate(-100%, 0); }
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
 }
