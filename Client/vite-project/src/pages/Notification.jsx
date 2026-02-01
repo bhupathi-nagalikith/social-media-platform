@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Bell, Heart, MessageCircle, UserPlus, AtSign, Users, Globe, Check } from 'lucide-react';
 import '../styles/Notification.css';
+import Navbar from '../components/Navbar'
 
 const NotificationPage = () => {
   const [notifications, setNotifications] = useState([]);
@@ -179,6 +180,10 @@ const NotificationPage = () => {
 
   return (
     <div className="notification-page">
+      <div>
+        <Navbar/>
+      </div>
+      <div style={{marginLeft:"150px"}}>
       <header className="notification-header">
         <div className="header-title">
           <Bell size={28} className="header-icon" />
@@ -379,6 +384,7 @@ const NotificationPage = () => {
             </div>
           )}
         </div>
+      </div>
       </div>
     </div>
   );

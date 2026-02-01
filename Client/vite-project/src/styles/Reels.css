@@ -1,0 +1,148 @@
+.reels-container {
+  height: 100vh;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  background: #000;
+  scrollbar-width: none;
+}
+
+.reels-container::-webkit-scrollbar {
+  display: none;
+}
+
+.reel-card {
+  height: 100vh;
+  width: 100%;
+  scroll-snap-align: start;
+  position: relative;
+  background: #000;
+}
+
+.reel-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.mute-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 8px;
+  border-radius: 50%;
+  z-index: 20;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.reel-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 40%;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 20px;
+  color: white;
+  pointer-events: none; /* Allows clicking through to the video */
+}
+
+.reel-actions {
+  position: absolute;
+  right: 15px;
+  bottom: 120px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  pointer-events: auto; /* Re-enable for buttons */
+}
+
+.action-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.action-item span {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.reel-info {
+  pointer-events: auto;
+  margin-bottom: 20px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.user-info img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+
+.user-info h4 {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.follow-btn {
+  background: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.caption {
+  font-size: 14px;
+  margin-bottom: 15px;
+  max-width: 85%;
+  line-height: 1.4;
+}
+
+.music-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 70%;
+}
+
+.marquee {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.marquee p {
+  display: inline-block;
+  padding-left: 100%;
+  animation: scroll-text 10s linear infinite;
+  font-size: 13px;
+}
+
+@keyframes scroll-text {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(-100%, 0); }
+}
