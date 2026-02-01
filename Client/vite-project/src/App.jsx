@@ -33,8 +33,8 @@ function App() {
         >
           <Route path="/home" element={<Home />} />
           <Route path="/reels" element={<Reelscontent />} />
-          <Route path="/messages" element={<Messages />} />
-          <Route path="/notification" element={<Notification />} />
+          <Route path="/messages" element={<Messages />} /> 
+          <Route path="/notification" element={<Notification />} /> 
           <Route path="/profile" element={<Profile />} /> 
           </Route>
         
