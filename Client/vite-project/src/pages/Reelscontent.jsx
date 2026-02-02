@@ -120,16 +120,7 @@ const ReelsPage = () => {
       comments: '2K',
       videoUrl: 'https://raw.githubusercontent.com/intel-iot-devkit/sample-videos/master/person-bicycle-640x360.mp4',
     }
-    {
-      id: 3,
-      user: 'gotam',
-      avatar: 'https://i.pravatar.cc/150?img=11',
-      caption: 'City lights in 4K 🌃 #urban #photography',
-      music: 'Night Drive - LoFi',
-      likes: '85K',
-      comments: '2K',
-      videoUrl: '',
-    }
+    
   ];
 
   return (
