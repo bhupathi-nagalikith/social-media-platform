@@ -7,10 +7,11 @@ import Home from './pages/Home';
 import Reelscontent from './pages/Reelscontent';
 import Messages from './pages/Messages';
 import Profile from './pages/Profile';
-
+import Forgottenpass from './pages/Forgottenpass.jsx';
 import Protectedroute from './components/Protectedroute';
 import MainLayout from './components/Mainlayout.jsx';
-import Forgottenpass from './pages/Forgottenpass.jsx';
+import Notification from './pages/Notification.jsx';
+
 
 function App() {
   const [login, setlogin] = useState(false);
@@ -19,8 +20,9 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* <Route path="/" element={<Login obj={user} setlogin={setlogin} />} />
+        <Route path="/" element={<Login obj={user} setlogin={setlogin} />} />
         <Route path="/signup" element={<Signup setuser={setuser} />} />
+        <Route path='forgotpassword' element={<Forgottenpass/>}/>
 
         <Route
           element={
@@ -32,12 +34,13 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/reels" element={<Reelscontent />} />
           <Route path="/messages" element={<Messages />} />
-          <Route path="/profile" element={<Profile />} />
-        </Route> */}
-        <Route path='/' element={<Profile/>}/>
-
+          <Route path="/notification" element={<Notification />} />
+          <Route path="/profile" element={<Profile />} /> 
+          </Route>
+        
       </Routes>
     </BrowserRouter>
+    
   );
 }
 

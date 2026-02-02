@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Signup.css";
+import "../styles/Signup.css";
 import { useNavigate } from "react-router-dom";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 const Signup = ({setuser}) => {
@@ -27,7 +27,7 @@ const Signup = ({setuser}) => {
 
   return (
     <div className="containerStyle">
-      <div className="img">
+      <div className="imga">
         <DotLottieReact
             src="https://lottie.host/a329ed4e-a781-4418-8404-4186194440fe/183mQhm7l2.json"
           loop
@@ -36,13 +36,13 @@ const Signup = ({setuser}) => {
           style={{ width: "900px", height: "500px" }}
           />
       </div>
-      <div className="cardStyle">
+      <div className="cardStylee">
         <div className="headerStyle">
           <h2 className="titleStyle">Create Account</h2>
           <p className="subtitleStyle">Join our community today</p>
         </div>
 
-        <form onSubmit={handleSignup} className="formStyle">
+        <form onSubmit={handleSignup} className="formStylee">
           <div className="groupStyle">
             <label className="labelStyle">
               <i className="fas fa-user iconStyle"></i>
@@ -110,7 +110,7 @@ const Signup = ({setuser}) => {
 
           <div className="loginStyle">
             Already have an account?{" "}
-            <a href="/login" className="linkStyle">
+            <a href="/" className="linkStyle">
               Login In here
             </a>
           </div>

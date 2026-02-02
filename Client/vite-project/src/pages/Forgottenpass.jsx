@@ -1,9 +1,13 @@
 import React from 'react'
-import './Forgottenpass.css'
+import '../styles/Forgottenpass.css'
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import { useNavigate } from 'react-router-dom';
 function Forgottenpass() {
   const navigate=useNavigate()
+  const submitform=(e)=>{
+    e.preventDefault();
+    navigate('/')
+  }
   return (
     <div className='cont'>
       <div className='img'>
@@ -18,10 +22,10 @@ function Forgottenpass() {
       <div className='contain'>
         <div className='sub'>
         <h2>Find your account</h2>
-         <form action="submit">
+         <form onSubmit={submitform}>
             <p className='label'>Enter you Mobile number or email</p>
             <input type="text" className='input' placeholder='enter your mobile number or email'/>
-            <button onClick={()=>{navigate('/home')}} className='btn'>Continue</button>
+            <button type='submit' className='btn'>Continue</button>
          </form>
          </div>
       </div>
