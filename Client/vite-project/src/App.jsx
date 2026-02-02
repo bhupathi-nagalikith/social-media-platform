@@ -11,6 +11,7 @@ import Forgottenpass from './pages/Forgottenpass.jsx';
 import Protectedroute from './components/Protectedroute';
 import MainLayout from './components/Mainlayout.jsx';
 import Notification from './pages/Notification.jsx';
+import Posts from './pages/Posts.jsx';
 
 
 function App() {
@@ -20,7 +21,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Login obj={user} setlogin={setlogin} />} />
+        {/* <Route path="/" element={<Login obj={user} setlogin={setlogin} />} />
         <Route path="/signup" element={<Signup setuser={setuser} />} />
         <Route path='forgotpassword' element={<Forgottenpass/>}/>
 
@@ -36,7 +37,8 @@ function App() {
           <Route path="/messages" element={<Messages />} /> 
           <Route path="/notification" element={<Notification />} /> 
           <Route path="/profile" element={<Profile />} /> 
-          </Route>
+          </Route> */}
+          <Route path='/' element={<Posts/>}/>
         
       </Routes>
     </BrowserRouter>
