@@ -1,413 +1,318 @@
-/* NotificationPage.css */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-}
-
-body {
-  background-color: #fafafa;
-  color: #262626;
+:root {
+  --primary-color: #0095f6;
+  --bg-color: #fafafa;
+  --card-bg: #ffffff;
+  --text-main: #262626;
+  --text-secondary: #8e8e8e;
+  --border-color: #dbdbdb;
+  --unread-bg: #f0f7ff;
+  --hover-bg: #f8f9fa;
+  --danger: #ed4956;
 }
 
 .notification-page {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: white;
+  background-color: var(--bg-color);
   min-height: 100vh;
+  padding-bottom: 50px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
+/* Header Styling */
 .notification-header {
+  background: var(--card-bg);
+  border-bottom: 1px solid var(--border-color);
+  padding: 1.5rem 10%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-bottom: 20px;
-  border-bottom: 1px solid #dbdbdb;
-  margin-bottom: 24px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 .header-title {
   display: flex;
   align-items: center;
   gap: 12px;
-  position: relative;
 }
 
 .header-title h1 {
-  font-size: 24px;
-  font-weight: 600;
-}
-
-.header-icon {
-  color: #262626;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin: 0;
 }
 
 .unread-badge {
-  background-color: #ed4956;
+  background-color: var(--danger);
   color: white;
-  font-size: 12px;
-  font-weight: 600;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  top: -5px;
-  left: 15px;
+  font-size: 0.75rem;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-weight: bold;
 }
 
 .header-actions {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 15px;
 }
 
 .mark-all-read-btn {
-  background-color: transparent;
-  border: 1px solid #dbdbdb;
-  border-radius: 8px;
-  padding: 8px 16px;
-  font-size: 14px;
+  background: transparent;
+  border: none;
+  color: var(--primary-color);
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.2s;
-}
-
-.mark-all-read-btn:hover:not(:disabled) {
-  background-color: #f8f8f8;
+  padding: 5px 10px;
 }
 
 .mark-all-read-btn:disabled {
-  opacity: 0.5;
+  color: var(--text-secondary);
   cursor: not-allowed;
 }
 
-.settings-btn {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #f8f8f8;
-  cursor: pointer;
-  transition: background-color 0.2s;
-}
-
-.settings-btn:hover {
-  background-color: #efefef;
-}
-
+/* Layout Container */
 .notification-container {
-  display: flex;
-  gap: 32px;
+  max-width: 1000px;
+  margin: 20px auto;
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 25px;
+  padding: 0 20px;
 }
 
+/* Sidebar Styling */
 .notification-sidebar {
-  flex: 0 0 240px;
-  border-right: 1px solid #dbdbdb;
-  padding-right: 24px;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 20px;
+  height: fit-content;
 }
 
 .sidebar-title {
-  font-size: 16px;
-  font-weight: 600;
-  margin-bottom: 12px;
-  color: #8e8e8e;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-bottom: 15px;
+  letter-spacing: 0.5px;
 }
 
 .filter-options {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  margin-bottom: 32px;
+  gap: 5px;
+  margin-bottom: 25px;
 }
 
 .filter-btn {
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 12px 16px;
+  gap: 12px;
+  padding: 10px 12px;
   border: none;
-  background: transparent;
+  background: none;
   border-radius: 8px;
-  font-size: 15px;
-  font-weight: 500;
+  color: var(--text-main);
   cursor: pointer;
-  transition: background-color 0.2s;
+  font-size: 0.95rem;
   text-align: left;
-  position: relative;
+  transition: background 0.2s;
 }
 
 .filter-btn:hover {
-  background-color: #f8f8f8;
+  background-color: var(--hover-bg);
 }
 
 .filter-btn.active {
-  background-color: #efefef;
+  background-color: var(--unread-bg);
+  color: var(--primary-color);
   font-weight: 600;
 }
 
 .filter-count {
-  background-color: #0095f6;
+  margin-left: auto;
+  font-size: 0.75rem;
+  background: var(--primary-color);
   color: white;
-  font-size: 12px;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  right: 16px;
+  padding: 2px 6px;
+  border-radius: 4px;
 }
 
-.today-section, .this-week-section {
-  margin-bottom: 32px;
-}
-
-.today-count, .week-count {
-  font-size: 14px;
-  color: #8e8e8e;
-  padding-left: 8px;
-}
-
+/* Feed Styling */
 .notification-feed {
-  flex: 1;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  overflow: hidden;
 }
 
 .feed-header {
+  padding: 15px 20px;
+  border-bottom: 1px solid var(--border-color);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 24px;
 }
 
 .feed-title {
-  font-size: 20px;
+  font-size: 1.1rem;
   font-weight: 600;
 }
 
 .feed-info {
-  font-size: 14px;
-  color: #8e8e8e;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
 }
 
-.empty-notifications {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 80px 20px;
-  text-align: center;
-}
-
-.empty-icon {
-  color: #dbdbdb;
-  margin-bottom: 20px;
-}
-
-.empty-notifications h3 {
-  font-size: 20px;
-  font-weight: 600;
-  margin-bottom: 8px;
-}
-
-.empty-notifications p {
-  color: #8e8e8e;
-  font-size: 15px;
-}
-
-.notifications-list {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
+/* Notification Item */
 .notification-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 16px;
-  border-radius: 12px;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--bg-color);
   cursor: pointer;
-  transition: background-color 0.2s;
-  border: 1px solid transparent;
+  transition: background 0.3s;
+  position: relative;
 }
 
 .notification-item:hover {
-  background-color: #fafafa;
+  background-color: var(--hover-bg);
 }
 
 .notification-item.unread {
-  background-color: #f6feff;
-  border-color: #e0f7ff;
+  background-color: var(--unread-bg);
 }
 
 .notification-content {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 15px;
   flex: 1;
 }
 
 .notification-avatar {
   position: relative;
+  width: 48px;
+  height: 48px;
 }
 
 .notification-avatar img {
-  width: 56px;
-  height: 56px;
+  width: 100%;
+  height: 100%;
   border-radius: 50%;
   object-fit: cover;
+  border: 1px solid var(--border-color);
 }
 
 .notification-type-icon {
   position: absolute;
   bottom: -2px;
   right: -2px;
-  width: 24px;
-  height: 24px;
+  background: white;
   border-radius: 50%;
+  padding: 3px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: white;
-  border: 2px solid white;
-}
-
-.icon-like {
-  color: #ed4956;
-}
-
-.icon-comment {
-  color: #0095f6;
-}
-
-.icon-follow, .icon-follow-request {
-  color: #8a3ab9;
-}
-
-.icon-mention {
-  color: #f56040;
-}
-
-.icon-group {
-  color: #4caf50;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .notification-details {
-  flex: 1;
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
 }
 
 .notification-text {
-  font-size: 15px;
+  font-size: 0.9rem;
   line-height: 1.4;
-  margin-bottom: 4px;
-}
-
-.notification-text b {
-  font-weight: 600;
+  margin: 0;
 }
 
 .notification-time {
-  font-size: 13px;
-  color: #8e8e8e;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-top: 4px;
 }
 
 .notification-post-preview img {
-  width: 56px;
-  height: 56px;
-  border-radius: 8px;
+  width: 44px;
+  height: 44px;
+  border-radius: 4px;
   object-fit: cover;
 }
 
+/* Action Buttons */
 .notification-actions {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
 }
 
-.follow-btn, .join-group-btn, .accept-btn, .ignore-btn {
-  padding: 8px 16px;
-  border-radius: 8px;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s;
+.follow-btn, .accept-btn, .join-group-btn {
+  background-color: var(--primary-color);
+  color: white;
   border: none;
-}
-
-.follow-btn, .join-group-btn {
-  background-color: #0095f6;
-  color: white;
-}
-
-.follow-btn:hover, .join-group-btn:hover {
-  background-color: #0081d6;
-}
-
-.accept-btn {
-  background-color: #0095f6;
-  color: white;
-  display: flex;
-  align-items: center;
-  gap: 6px;
+  padding: 6px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
 }
 
 .ignore-btn {
-  background-color: transparent;
-  color: #262626;
-  border: 1px solid #dbdbdb;
-}
-
-.accept-btn:hover {
-  background-color: #0081d6;
-}
-
-.ignore-btn:hover {
-  background-color: #f8f8f8;
-}
-
-.follow-request-actions {
-  display: flex;
-  gap: 8px;
+  background-color: #efefef;
+  color: var(--text-main);
+  border: none;
+  padding: 6px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
 }
 
 .unread-indicator {
   width: 8px;
   height: 8px;
+  background-color: var(--primary-color);
   border-radius: 50%;
-  background-color: #0095f6;
+  margin-left: 10px;
 }
 
-/* Responsive adjustments */
+/* Icon Colors */
+.icon-like { color: #ed4956; }
+.icon-comment { color: #0095f6; }
+.icon-follow, .icon-follow-request { color: #58c322; }
+.icon-mention { color: #7822c3; }
+.icon-group { color: #f5a623; }
+
+/* Empty State */
+.empty-notifications {
+  padding: 60px 20px;
+  text-align: center;
+  color: var(--text-secondary);
+}
+
+.empty-icon {
+  margin-bottom: 20px;
+  opacity: 0.3;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
   .notification-container {
-    flex-direction: column;
-    gap: 20px;
+    grid-template-columns: 1fr;
   }
   
   .notification-sidebar {
-    flex: none;
-    border-right: none;
-    border-bottom: 1px solid #dbdbdb;
-    padding-right: 0;
-    padding-bottom: 24px;
+    display: none; /* Hide sidebar on mobile or use a horizontal slider */
   }
   
-  .filter-options {
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-  
-  .filter-btn {
-    flex: 1;
-    min-width: 120px;
-    justify-content: center;
+  .notification-header {
+    padding: 1rem 5%;
   }
 }
