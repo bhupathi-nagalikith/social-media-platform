@@ -12,6 +12,9 @@ function Home() {
 
       {/* RIGHT CONTENT */}
       <main className="feed">
+       <div className='input-wrapper'>
+          <input type="text" placeholder="Search accounts...." />
+        </div>
         {/* STORIES */}
         <div className="stories-container">
           {[1,2,3,4,5,6,7,8,9].map((i) => (
