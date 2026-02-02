@@ -6,9 +6,26 @@
   font-family: 'Inter', sans-serif;
 }
 
+.input-wrapper input {
+  width: 60vw;
+  padding: 12px 20px;
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+  background: #efefef;
+  font-size: 16px;
+  outline: none;
+  transition: all 0.2s ease;
+  margin-bottom: 20px;
+}
+
+.input-wrapper input:focus {
+  background: #fff;
+  border-color: #a8a8a8;
+}
 .home-container {
   display: flex;
 }
+
 
 /* 2. SIDEBAR (Your Main) */
 .main {
@@ -66,7 +83,7 @@
 
 .container {
   width: 100%;
-  max-width: 670px;
+  max-width: 770px;
 }
 
 .card {
