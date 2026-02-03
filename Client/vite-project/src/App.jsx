@@ -1,35 +1,50 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+import Home from './pages/Home';
+import Reelscontent from './pages/Reelscontent';
+import Messages from './pages/Messages';
+import Profile from './pages/Profile';
+import Forgottenpass from './pages/Forgottenpass.jsx';
+import Protectedroute from './components/Protectedroute';
+import MainLayout from './components/Mainlayout.jsx';
+import Notification from './pages/Notification.jsx';
+import Posts from './pages/Posts.jsx';
+
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [login, setlogin] = useState(false);
+  const [user, setuser] = useState({ email: "", password: "" });
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+  
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Login obj={user} setlogin={setlogin} />} />
+        <Route path="/signup" element={<Signup setuser={setuser} />} />
+        <Route path='forgotpassword' element={<Forgottenpass/>}/>
+
+        <Route
+          element={
+            <Protectedroute login={login}>
+              <MainLayout />
+            </Protectedroute>
+          }
+        >
+          <Route path="/home" element={<Home />} />
+          <Route path="/reels" element={<Reelscontent />} />
+          <Route path="/messages" element={<Messages />} /> 
+          <Route path="/notification" element={<Notification />} /> 
+          <Route path="/profile" element={<Profile />} />
+           <Route path="/addposts" element={<Posts />} /> 
+          </Route> 
+          
+    </Routes>
+    </BrowserRouter>
+    
+  );
 }
 
-export default App
+export default App;
