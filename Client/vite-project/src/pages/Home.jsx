@@ -31,7 +31,7 @@ function Home() {
               
               <div className="profile">
                 <img src={`https://i.pravatar.cc/150?img=${i+10}`} />
-                <span>18 with 15(S❤️L)</span>
+                <span>Krishna</span>
               </div>
 
               <img
