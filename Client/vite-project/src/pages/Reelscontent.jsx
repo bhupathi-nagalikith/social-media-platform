@@ -120,6 +120,7 @@ const ReelsPage = () => {
       comments: '2K',
       videoUrl: 'https://raw.githubusercontent.com/intel-iot-devkit/sample-videos/master/person-bicycle-640x360.mp4',
     }
+    
   ];
 
   return (

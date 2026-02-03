@@ -1,5 +1,5 @@
 import React from 'react'
-import '../styles/Forgottenpass.css'
+import '../styles/Forgotten.css'
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import { useNavigate } from 'react-router-dom';
 function Forgottenpass() {
