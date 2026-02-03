@@ -37,7 +37,7 @@ function App() {
           <Route path="/reels" element={<Reelscontent />} />
           <Route path="/messages" element={<Messages />} /> 
           <Route path="/notification" element={<Notification />} /> 
-          <Route path="/profile" element={<Profile />} />
+          <Route path="/profile" element={<Profile />} />  
            <Route path="/addposts" element={<Posts />} /> 
           </Route> 
           
