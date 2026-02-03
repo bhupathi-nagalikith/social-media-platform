@@ -12,8 +12,6 @@ import Protectedroute from './components/Protectedroute';
 import MainLayout from './components/Mainlayout.jsx';
 import Notification from './pages/Notification.jsx';
 import Posts from './pages/Posts.jsx';
-import Explorer from './pages/Explorer.jsx';
-
 
 
 function App() {
@@ -21,6 +19,7 @@ function App() {
   const [user, setuser] = useState({ email: "", password: "" });
 
   return (
+  
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Login obj={user} setlogin={setlogin} />} />
@@ -38,15 +37,11 @@ function App() {
           <Route path="/reels" element={<Reelscontent />} />
           <Route path="/messages" element={<Messages />} /> 
           <Route path="/notification" element={<Notification />} /> 
-          <Route path="/profile" element={<Profile />} /> 
-          {/* <Route path='/Explorer' element={<Explorer/>}/> */}
-          <Route path="/" element={<Explorer />} />
-        {/* Optional: Also allow /search route */}
-          <Route path="/search" element={<Explorer />} />
-          </Route>
-          <Route path='/' element={<Posts/>}/>
-        
-      </Routes>
+          <Route path="/profile" element={<Profile />} />
+           <Route path="/addposts" element={<Posts />} /> 
+          </Route> 
+          
+    </Routes>
     </BrowserRouter>
     
   );

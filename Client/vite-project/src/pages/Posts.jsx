@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import '../styles/Posts.css';
+import Navbar from '../components/Navbar';
 
 const Posts = () => {
   const [postContent, setPostContent] = useState('');
@@ -138,6 +139,9 @@ const Posts = () => {
 
   return (
     <div className="create-post-page">
+       <aside className="sidebar">
+        <Navbar />
+      </aside>
       <div className="post-container">
         <div className="post-header">
           <h2>Create Post</h2>
